@@ -1,0 +1,3 @@
+FROM maven:3.9.4
+
+# EXPOSE 8080

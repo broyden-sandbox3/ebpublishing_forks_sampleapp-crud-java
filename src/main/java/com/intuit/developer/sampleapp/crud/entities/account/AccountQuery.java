@@ -26,6 +26,7 @@ public class AccountQuery {
 	public static void main(String[] args) {
 		try {
 			queryAccount();
+			System.out.println("COMPLETED SUCCESSFULLY!!!!!!!!!!!");
 		} catch (Exception e) {
 			LOG.error("Error during CRUD", e.getCause());
 		}
@@ -40,20 +41,20 @@ public class AccountQuery {
 			// get all accounts
 			String sql = "select * from account";
 			QueryResult queryResult = service.executeQuery(sql);
-			int count = queryResult.getEntities().size();
+			// int count = queryResult.getEntities().size();
 			
-			LOG.info("Total number of accounts: " + count);
+			// LOG.info("Total number of accounts: " + count);
 			
-			// add bank account
-			Account account = AccountHelper.getBankAccountFields();
-			Account savedAccount = service.add(account);
-			LOG.info("Account created: " + savedAccount.getId());		
+			// // add bank account
+			// Account account = AccountHelper.getBankAccountFields();
+			// Account savedAccount = service.add(account);
+			// LOG.info("Account created: " + savedAccount.getId());		
 				
-			// get account data based on id
-			sql = "select * from account where id = '" + savedAccount.getId() + "'"; 
-			queryResult = service.executeQuery(sql);
-			account = (Account) queryResult.getEntities().get(0);
-			LOG.info("Account name : " + account.getFullyQualifiedName());
+			// // get account data based on id
+			// sql = "select * from account where id = '" + savedAccount.getId() + "'"; 
+			// queryResult = service.executeQuery(sql);
+			// account = (Account) queryResult.getEntities().get(0);
+			// LOG.info("Account name : " + account.getFullyQualifiedName());
 				
 		} catch (FMSException e) {
 			List<Error> list = e.getErrorList();
